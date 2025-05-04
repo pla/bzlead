@@ -16,14 +16,14 @@ end
 
 if util.k2() then 
   local lead_bolt = util.me.more_entities() and "lead-expansion-bolt" or "lead-plate"
-  util.replace_ingredient("rifle-magazine", "iron-plate", "lead-plate")
-  util.replace_ingredient("anti-material-rifle-magazine", "iron-plate", "lead-plate")
+  util.replace_ingredient("kr-rifle-magazine", "iron-plate", "lead-plate")
+  util.replace_ingredient("kr-anti-material-rifle-magazine", "iron-plate", "lead-plate")
   util.replace_some_ingredient("kr-crusher", "iron-beam", 5, lead_bolt, 5)
   util.replace_ingredient("kr-shelter", "iron-plate", lead_bolt)
   util.add_ingredient("kr-advanced-furnace", lead_bolt, 20)
   util.replace_ingredient("uranium-fuel-cell", "steel-plate", "lead-plate")
-  util.replace_some_ingredient("kr-fluid-storage-1", "steel-plate", 10, "lead-plate", 10)
-  util.replace_some_ingredient("kr-fluid-storage-2", "steel-plate", 30, "lead-plate", 30)
+  util.replace_some_ingredient("kr-big-storage-tank", "steel-plate", 10, "lead-plate", 10)
+  util.replace_some_ingredient("kr-huge-storage-tank", "steel-plate", 30, "lead-plate", 30)
 end
 
 if mods["modmashsplintergold"] then
