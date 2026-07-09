@@ -10,7 +10,7 @@ data:extend({
 		type = "bool-setting",
 		name = "bzlead-byproduct",
 		setting_type = "startup",
-    default_value = true,
+    default_value = false,
 	},
   {
 		type = "string-setting",

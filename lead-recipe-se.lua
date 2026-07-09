@@ -1,5 +1,5 @@
 -- Additional recipes if Space Exploration mod is enabled
-local util = require("data-util");
+local util = require("data-util")
 
 if mods["space-exploration"] then
   se_delivery_cannon_recipes[util.me.lead_ore] = {name= util.me.lead_ore}
@@ -42,7 +42,7 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
   },
   {
     type = "recipe",
-    category = "smelting",
+    categories = {"smelting"},
     name = "molten-lead",
     main_product = "molten-lead",
     subgroup = "lead",
@@ -62,7 +62,7 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
   {
     type = "recipe",
     name = "lead-ingot",
-    category = "casting",
+    categories = {"casting"},
     results = {{"lead-ingot", 1}},
     energy_required = 25,
     ingredients = {
@@ -74,7 +74,7 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
   },
   {
     type = "recipe",
-    category = "crafting",
+    categories = {"crafting"},
     name = "lead-ingot-to-plate",
 
     icons = {
@@ -94,58 +94,65 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
     order = "a-c-b"
   },
   })
-  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "molten-lead"})
-  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "lead-ingot"})
-  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "lead-ingot-to-plate"})
-  util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "molten-lead"})
-  util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "lead-ingot"})
-  util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "lead-ingot-to-plate"})
-  if util.k2() then
-    util.set_item_subgroup("enriched-lead", "lead")
-    data.raw.recipe["enriched-lead-plate"].order= "d[lead-plate]"
-    se_delivery_cannon_recipes["enriched-lead"] = {name= "enriched-lead"}
-  else
-    if util.me.byproduct() then util.add_product("molten-lead", {"copper-ore", 6}) end
-  end
-  se_delivery_cannon_recipes["lead-ingot"] = {name="lead-ingot"}
+    util.add_effect("se-pyroflux-smelting", { type = "unlock-recipe", recipe = "molten-lead" })
+    util.add_effect("se-pyroflux-smelting", { type = "unlock-recipe", recipe = "lead-ingot" })
+    util.add_effect("se-pyroflux-smelting", { type = "unlock-recipe", recipe = "lead-ingot-to-plate" })
+    util.add_effect("se-vulcanite-smelting", { type = "unlock-recipe", recipe = "molten-lead" })
+    util.add_effect("se-vulcanite-smelting", { type = "unlock-recipe", recipe = "lead-ingot" })
+    util.add_effect("se-vulcanite-smelting", { type = "unlock-recipe", recipe = "lead-ingot-to-plate" })
+    if util.k2() then
+      util.set_item_subgroup("enriched-lead", "lead")
+      data.raw.recipe["enriched-lead-plate"].order = "d[lead-plate]"
+      se_delivery_cannon_recipes["enriched-lead"] = { name = "enriched-lead" }
+    else
+      if util.me.byproduct() then
+        util.add_product("molten-lead", { "copper-ore", 6 })
+      end
+    end
+    se_delivery_cannon_recipes["lead-ingot"] = { name = "lead-ingot" }
 else
-  data.raw.item["lead-plate"].subgroup = "plates"
+    data.raw.item["lead-plate"].subgroup = "plates"
   if util.k2() then
-    data:extend({
-    {
-      type = "recipe",
-      name = "enriched-lead-smelting-vulcanite",
-      category = "smelting",
-      order = "d[lead-plate]",
-      energy_required = 24,
-      enabled = false,
-      always_show_made_in = true,
-      allow_as_intermediate = false,
-      ingredients = {
-        {name = "enriched-lead", amount = 8},
-        {name = "se-vulcanite-block", amount = 1},
-      },
-      results = {
-        {name = util.me.lead_plate, amount = 12},
-      },
-      icons =
-      {
-        { icon = "__bzlead__/graphics/icons/lead-plate.png", icon_size = 64 },
-        { icon = "__space-exploration-graphics__/graphics/icons/vulcanite-block.png", icon_size = 64, scale=0.25, shift= {-10, -10}},
-      },
-      
-    },
-    })
-    table.insert(data.raw.technology["se-processing-vulcanite"].effects, 
-        {type = "unlock-recipe", recipe= "enriched-lead-smelting-vulcanite"})
-    data.raw.recipe["enriched-lead-plate"].order= "d[lead-plate]"
-    se_delivery_cannon_recipes["enriched-lead"] = {name= "enriched-lead"}
+      data:extend({
+        {
+          type = "recipe",
+          name = "enriched-lead-smelting-vulcanite",
+          categories = { "smelting" },
+          order = "d[lead-plate]",
+          energy_required = 24,
+          enabled = false,
+          always_show_made_in = true,
+          allow_as_intermediate = false,
+          ingredients = {
+            { name = "enriched-lead", amount = 8 },
+            { name = "se-vulcanite-block", amount = 1 },
+          },
+          results = {
+            { name = util.me.lead_plate, amount = 12 },
+          },
+          icons = {
+            { icon = "__bzlead__/graphics/icons/lead-plate.png", icon_size = 64 },
+            {
+              icon = "__space-exploration-graphics__/graphics/icons/vulcanite-block.png",
+              icon_size = 64,
+              scale = 0.25,
+              shift = { -10, -10 },
+            },
+          },
+        },
+      })
+      table.insert(
+        data.raw.technology["se-processing-vulcanite"].effects,
+        { type = "unlock-recipe", recipe = "enriched-lead-smelting-vulcanite" }
+      )
+      data.raw.recipe["enriched-lead-plate"].order = "d[lead-plate]"
+      se_delivery_cannon_recipes["enriched-lead"] = { name = "enriched-lead" }
   else
     data:extend({
     {
       type = "recipe",
       name = "lead-smelting-vulcanite",
-      category = "smelting",
+      categories = {"smelting"},
       subgroup = "plates",
       order = "d[lead-plate]",
       energy_required = 24,

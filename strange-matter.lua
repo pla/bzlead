@@ -1,4 +1,4 @@
-local util = require("__bzlead__.data-util");
+local util = require("__bzlead__.data-util")
 
 
 local ore = "lead-ore"
@@ -17,7 +17,7 @@ data:extend({
     energy_required = 1,
     ingredients = {{type="fluid", name="strange-matter", amount = 1}},
     result = ore,
-    category = "crafting-with-fluid",
+    categories = {"crafting-with-fluid"},
     subgroup = "synthesis",
   },
   {

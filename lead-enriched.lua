@@ -1,5 +1,5 @@
 -- Enriched Lead for Krastorio2
-local util = require("data-util");
+local util = require("__bzlead__.data-util")
 
 if util.k2() then
 data:extend(
@@ -27,7 +27,7 @@ data:extend(
     icon = "__bzlead__/graphics/icons/enriched-lead.png",
     icon_size = 64,
     icon_mipmaps = 3,
-    category = "chemistry",
+    categories = {"chemistry"},
     energy_required = 3,
     enabled = false,
     always_show_made_in = true,
@@ -63,7 +63,7 @@ data:extend(
         { icon = "__bzlead__/graphics/icons/lead-plate.png", icon_size = 64, icon_mipmaps = 3 },
         { icon = "__bzlead__/graphics/icons/enriched-lead.png", icon_size = 64, icon_mipmaps = 3, scale=0.25, shift= {-8, -8}},
       },
-      category = "smelting",
+      categories = {"smelting"},
       energy_required = 16,
       enabled = false,
       always_show_made_in = true,
@@ -79,7 +79,7 @@ data:extend(
 	{
 		type = "recipe",
 		name = "dirty-water-filtration-lead",
-		category = "kr-fluid-filtration",
+		categories = {"kr-fluid-filtration"},
 		icons =
 		{
 			{
@@ -106,9 +106,9 @@ data:extend(
 		results =
 		{
 			{type = "fluid", name = "water", amount = 90, ignored_by_stats=90, ignored_by_productivity=90},
-			{type = "item",  name = "stone", probability = 0.30, amount = 1},
-			{type = "item",  name = "lead-ore", probability = 0.50, amount = 1},
-			util.me.byproduct() and {type = "item",  name = "copper-ore", probability = 0.05, amount = 1} or nil,
+			{type = "item",  name = "stone", independent_probability = 0.30, amount = 1},
+			{type = "item",  name = "lead-ore", independent_probability = 0.50, amount = 1},
+			util.me.byproduct() and {type = "item",  name = "copper-ore", independent_probability = 0.05, amount = 1} or nil,
 		},
 		crafting_machine_tint =
 		{

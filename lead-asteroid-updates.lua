@@ -1,4 +1,4 @@
-local util = require("data-util");
+local util = require("data-util")
 
 if mods["space-age"] then
 
@@ -22,7 +22,7 @@ if mods["space-age"] then
         {icon="__base__/graphics/icons/iron-ore.png", size=64, scale=0.25, shift={-8,0}},
         {icon="__bzlead__/graphics/icons/lead-ore.png", size=64, scale=0.25, shift={8,0}},
       },
-      category = "crushing",
+      categories = {"crushing"},
       subgroup="space-crushing",
       order = "b-a-z-b",
       auto_recycle = false,
@@ -36,7 +36,7 @@ if mods["space-age"] then
       {
         {type = "item", name = "lead-ore", amount = 10},
         {type = "item", name = "iron-ore", amount = 7},
-        {type = "item", name = "metallic-asteroid-chunk", amount = 1, probability = 0.1}
+        {type = "item", name = "metallic-asteroid-chunk", amount = 1, independent_probability = 0.1}
       },
       hide_from_signal_gui = false,
       allow_productivity = true,

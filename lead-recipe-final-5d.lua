@@ -1,4 +1,4 @@
-local util = require("__bzlead__.data-util");
+local util = require("__bzlead__.data-util")
 
 if mods["5dim_core"] then
 local leb = util.me.more_entities() and "lead-expansion-bolt" or "lead-plate"
@@ -13,7 +13,7 @@ local leb = util.me.more_entities() and "lead-expansion-bolt" or "lead-plate"
       {
         type = "recipe",
         name = "lead-plate-industrial-ore",
-        category = "industrial-furnace",
+        categories = {"industrial-furnace"},
         subgroup = "plates-industrial-ore",
         order = "ad[lead-plate]",
         icon = "__bzlead__/graphics/icons/lead-plate.png",
@@ -46,7 +46,7 @@ local leb = util.me.more_entities() and "lead-expansion-bolt" or "lead-plate"
               icon_size = 64, icon_mipmaps = 3,
               subgroup = "plates-plates2",
               order = "d[lead-plate]",
-              category = "smelting",
+              categories = {"smelting"},
               energy_required = 3.2,
               enabled = true,
               ingredients = {
@@ -62,7 +62,7 @@ local leb = util.me.more_entities() and "lead-expansion-bolt" or "lead-plate"
               main_product = "lead-dust",
               icon = "__bzlead__/graphics/icons/lead-powder.png",
               icon_size = 64, icon_mipmaps = 3,
-              category = "mashering",
+              categories = {"mashering"},
               subgroup = "",
               order = "d[lead-plate]",
               energy_required = 3.2,
@@ -77,7 +77,7 @@ local leb = util.me.more_entities() and "lead-expansion-bolt" or "lead-plate"
           {
             type = "recipe",
             name = "lead-plate-industrial-dust",
-            category = "industrial-furnace",
+            categories = {"industrial-furnace"},
             subgroup = "plates-industrial-dust",
             order = "ad[lead-plate]",
             icon = "__bzlead__/graphics/icons/lead-plate.png",
